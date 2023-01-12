@@ -1,4 +1,5 @@
 import {builder} from "./builder.js";
+import {calculateTotalPrice} from "./controller.js"
 
 export let display = {
     showContent: function (selector, content){
@@ -9,5 +10,12 @@ export let display = {
             return builder.buildCard(product);
         }).join('');
         this.showContent('#products', productContent);
+    },
+    showCart: function (cartInfo){
+        let cartContent = cartInfo.map(product =>{
+            return builder.buildCardForCart(product);
+        }).join('');
+        this.showContent('#cart-body',cartContent);
+        calculateTotalPrice(cartInfo);
     }
 }

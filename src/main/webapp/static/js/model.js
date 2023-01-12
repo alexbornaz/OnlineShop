@@ -12,4 +12,7 @@ export let responses = {
     sendProdToCart:async function(prodId) {
         return await  getResponse(`/api/addToCart?prodId=${prodId}`)
     },
+    getCartInfo: async function(){
+        return await getResponse("/api/cartInfo")
+    },
 };

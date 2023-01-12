@@ -1,11 +1,13 @@
 import {responses} from "./model.js";
 import {display} from "./view.js";
+import {builder} from "./builder.js";
 
 
 function init(){
     addEventListener("#categories",filterProd);
     addEventListener("#suppliers",filterProd);
     addToCartBtnsAction();
+    checkCart();
 }
 function addEventListener(selector, func) {
     document.querySelector(selector).addEventListener('change', func);
@@ -31,5 +33,19 @@ function addToCartBtnsAction(){
         cartBtn.addEventListener("click",async (e) =>{
             await addToCart(e);
         }))
+}
+function checkCart(){
+    let viewCart = document.getElementById("cart");
+    viewCart.addEventListener("click", async() =>{
+        let cartInfo = await responses.getCartInfo();
+        display.showCart(cartInfo);
+    })
+}
+export function calculateTotalPrice(cartInfo){
+        const totalPrice = cartInfo.map(product => {
+            return Number(product.defaultPrice) * Number(product.quantity)
+        }).reduce((a, b) => a + b, 0)
+        document.querySelector("#total-price").innerText = String(totalPrice) + "$"
+        document.querySelector("#total-price").dataset.total = String(totalPrice)
 }
 init();
