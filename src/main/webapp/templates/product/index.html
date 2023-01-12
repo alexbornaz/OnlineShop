@@ -32,7 +32,12 @@
 
 <div class="jumbotron text-center">
     <h1>Codecool Shop</h1>
+    <div id="cart-div">
+        <button type="button" id="cart" class="btn btn-primary" data-toggle="modal" data-target="#cartModal">View Cart</button>
+        <div th:replace="cartModal.html :: copy"></div>
+    </div>
 </div>
+<div class="container">
         <div class="row dropdown">
             <div class="column">
                 <strong >Category: </strong>
@@ -63,13 +68,14 @@
                                     <p class="lead" th:text="${product.getPrice()}">100 USD</p>
                                 </div>
                                 <div class="card-text">
-                                    <a class="btn btn-success" href="#">Add to cart</a>
+                                    <button th:data-btn-id="${product.id}" class="btn btn-success cart-btn">Add to cart</button>
+                                </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div th:replace="footer.html :: copy"></div>
+</div>
+<div th:replace="footer.html :: copy"></div>
 </body>
 </html>

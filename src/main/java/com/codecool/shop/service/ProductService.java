@@ -13,16 +13,25 @@ import java.util.stream.Collectors;
 public class ProductService {
     private ProductDao productDao;
     private ProductCategoryDao productCategoryDao;
-
-
-
     private SupplierDao supplierDao;
 
+    private static ProductService instance = null;
 
-    public ProductService(ProductDao productDao, ProductCategoryDao productCategoryDao, SupplierDao supplierDao) {
+
+    private ProductService(ProductDao productDao, ProductCategoryDao productCategoryDao, SupplierDao supplierDao) {
         this.productDao = productDao;
         this.productCategoryDao = productCategoryDao;
         this.supplierDao = supplierDao;
+    }
+
+    public static void createInstance(ProductDao productDao, ProductCategoryDao productCategoryDao, SupplierDao supplierDao){
+        instance = new ProductService(productDao,productCategoryDao,supplierDao);
+    }
+    public static ProductService getInstance() {
+        if (instance == null){
+            throw new Error("ProductService Object not created yet!");
+        }
+        return instance;
     }
 
 
@@ -46,6 +55,9 @@ public class ProductService {
     }
     public List<Product> getAllProducts(){
         return productDao.getAll();
+    }
+    public Product getProductById(int id){
+        return productDao.find(id);
     }
 }
 

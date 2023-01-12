@@ -8,5 +8,8 @@ async function getResponse(url){
 export let responses = {
     getFilteredProducts: async function (categoryId, supplierId) {
         return await getResponse(`/api/filtered?categoryId=${categoryId}&supplierId=${supplierId}`);
-    }
+    },
+    sendProdToCart:async function(prodId) {
+        return await  getResponse(`/api/addToCart?prodId=${prodId}`)
+    },
 };

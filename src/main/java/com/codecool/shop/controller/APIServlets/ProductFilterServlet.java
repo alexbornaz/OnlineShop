@@ -1,4 +1,4 @@
-package com.codecool.shop.controller;
+package com.codecool.shop.controller.APIServlets;
 
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.model.Product;
