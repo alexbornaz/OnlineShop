@@ -24,8 +24,9 @@ public class ProductService {
         this.supplierDao = supplierDao;
     }
 
-    public static void createInstance(ProductDao productDao, ProductCategoryDao productCategoryDao, SupplierDao supplierDao){
+    public static ProductService createInstance(ProductDao productDao, ProductCategoryDao productCategoryDao, SupplierDao supplierDao){
         instance = new ProductService(productDao,productCategoryDao,supplierDao);
+        return instance;
     }
     public static ProductService getInstance() {
         if (instance == null){

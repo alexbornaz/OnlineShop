@@ -1,5 +1,5 @@
 import {builder} from "./builder.js";
-import {calculateTotalPrice} from "./controller.js"
+import {calculateTotalPrice,engageEditCart} from "./controller.js"
 
 export let display = {
     showContent: function (selector, content){
@@ -17,5 +17,6 @@ export let display = {
         }).join('');
         this.showContent('#cart-body',cartContent);
         calculateTotalPrice(cartInfo);
+        engageEditCart();
     }
 }

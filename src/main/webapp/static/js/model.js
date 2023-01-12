@@ -3,6 +3,17 @@ async function getResponse(url){
     return  await response.json();
 
 }
+async function PostResponse(url, data) {
+    const setupObj = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    }
+    const response = await fetch(url, setupObj);
+    return response.json();
+}
 
 
 export let responses = {
@@ -15,4 +26,7 @@ export let responses = {
     getCartInfo: async function(){
         return await getResponse("/api/cartInfo")
     },
+    editCartContent: async function(data){
+        await PostResponse("/api/editProdOnCart",data)
+    }
 };

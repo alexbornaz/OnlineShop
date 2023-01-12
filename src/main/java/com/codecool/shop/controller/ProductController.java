@@ -32,10 +32,8 @@ public class ProductController extends HttpServlet {
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
         SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
         CartDao cartDataStore =CartDaoMem.getInstance();
-        ProductService.createInstance(productDataStore,productCategoryDataStore,supplierDataStore);
-        ProductService productService = ProductService.getInstance();
-        CartService.createInstance(cartDataStore);
-        CartService cartService = CartService.getInstance();
+        ProductService productService = ProductService.createInstance(productDataStore,productCategoryDataStore,supplierDataStore);
+        CartService cartService = CartService.createInstance(cartDataStore);
 
 
 

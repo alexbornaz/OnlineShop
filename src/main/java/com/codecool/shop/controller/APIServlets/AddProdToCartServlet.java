@@ -20,15 +20,19 @@ public class AddProdToCartServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         PrintWriter out = resp.getWriter();
-        int prodId = Integer.parseInt(req.getParameter("prodId"));
-        Product product = ProductService.getInstance().getProductById(prodId);
+        String prodId = req.getParameter("prodId");
+        System.out.println(prodId);
+        ProductService pS = ProductService.getInstance();
+        Product product = pS.getProductById(Integer.parseInt(prodId));
         CartService cartService = CartService.getInstance();
-
+        System.out.println(cartService.getAll());
+        System.out.println(cartService.get(product.getId()) != null);
         if (cartService.get(product.getId()) != null){
-            cartService.modify(1,prodId);
+            cartService.modify(1,product.getId());
         }else {
             cartService.add(product,1);
         }
+        System.out.println(cartService.getAll());
         System.out.println(product.getName()+" added!");
         out.println(new Gson().toJson(product.getName()+" added!"));
         out.flush();

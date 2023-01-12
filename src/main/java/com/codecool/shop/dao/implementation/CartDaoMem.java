@@ -26,9 +26,10 @@ public class CartDaoMem implements CartDao {
     }
 
     @Override
-    public void modify(int prodId, int amount) {
+    public void modify(int amount, int prodId) {
         ProductOnCart product = get(prodId);
-        if ((product.getQuantity() + amount) < 1) {
+        System.out.println(product.getId());
+        if (product.getQuantity() + amount < 1) {
             data.remove(product);
         } else {
             product.setQuantity(product.getQuantity() + amount);

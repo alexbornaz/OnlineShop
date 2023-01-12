@@ -30,8 +30,8 @@ export let builder = {
                 ${product.defaultPrice * product.quantity} ${product.defaultCurrency}
             </td>
             <td data-product-id="${product.id}">
-                <h2 data-value="1" class="edit">+</h2>
-                <h2 data-value="-1" class="edit"> -</h2>
+                <h2 data-value="1" class="edit-cart-qty">+</h2>
+                <h2 data-value="-1" class="edit-cart-qty">-</h2>
             </td>
         </tr>`;
     }

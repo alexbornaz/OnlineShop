@@ -14,8 +14,9 @@ public class CartService {
     private CartService(CartDao cartDao) {
         this.cartDao = cartDao;
     }
-    public static void createInstance(CartDao cartDao){
+    public static CartService createInstance(CartDao cartDao){
         instance = new CartService(cartDao);
+        return instance;
     }
     public static CartService getInstance(){
         if (instance == null){
