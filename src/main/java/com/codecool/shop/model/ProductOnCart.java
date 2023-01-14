@@ -1,5 +1,7 @@
 package com.codecool.shop.model;
 
+import java.math.BigDecimal;
+
 public class ProductOnCart extends Product{
     private int quantity;
 
@@ -15,5 +17,8 @@ public class ProductOnCart extends Product{
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+    public BigDecimal total(){
+        return getDefaultPrice().multiply(BigDecimal.valueOf(quantity));
     }
 }

@@ -4,7 +4,9 @@ import com.codecool.shop.dao.CartDao;
 import com.codecool.shop.model.Product;
 import com.codecool.shop.model.ProductOnCart;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 public class CartService {
     private CartDao cartDao;
@@ -41,5 +43,9 @@ public class CartService {
 
     public List<ProductOnCart> getAll(){
         return cartDao.getAll();
+    }
+    public BigDecimal getTotalPrice(){
+        BigDecimal total = getAll().stream().map((productOnCart) -> productOnCart.total()).reduce((x, y) -> x.add(y)).get();
+        return total;
     }
 }

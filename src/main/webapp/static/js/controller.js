@@ -89,4 +89,5 @@ export function calculateTotalPrice(cartInfo){
         document.querySelector("#total-price").innerText = String(totalPrice) + "$"
         document.querySelector("#total-price").dataset.total = String(totalPrice)
 }
+
 init();

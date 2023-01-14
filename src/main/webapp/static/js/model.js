@@ -28,5 +28,9 @@ export let responses = {
     },
     editCartContent: async function(data){
         await PostResponse("/api/editProdOnCart",data)
+    },
+    confirmOrder: async function (data){
+        await PostResponse("/api/confirm_order",data)
     }
+
 };
