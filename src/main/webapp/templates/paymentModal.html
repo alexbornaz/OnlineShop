@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="copy">
+
+
+  <div class="modal fade" id="paymentModal" role="dialog" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+          <div class="tabs mt-3">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation"> <a class="nav-link active" id="visa-tab" data-toggle="tab" href="#visa" role="tab" aria-controls="visa" aria-selected="true"> <img src="https://i.imgur.com/sB4jftM.png" width="80"> </a> </li>
+              <li class="nav-item" role="presentation"> <a class="nav-link" id="paypal-tab" data-toggle="tab" href="#paypal" role="tab" aria-controls="paypal" aria-selected="false"> <img src="https://i.imgur.com/yK7EDD1.png" width="80"> </a> </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="visa" role="tabpanel" aria-labelledby="visa-tab">
+                <div class="mt-4 mx-4">
+                  <div class="text-center">
+                    <h5>Credit card</h5>
+                  </div>
+                  <div class="form mt-3">
+                    <div class="inputbox"> <span>Cardholder Name</span> <input id="cardHolderName" type="text" name="name" class="form-control" required="required"> </div>
+                    <div class="inputbox"> <span>Card Number</span> <input id="cardNumber" type="text" name="name" min="1" max="999" class="form-control" required="required"> <i class="fa fa-eye"></i> </div>
+                    <div class="d-flex flex-row">
+                      <div class="inputbox"> <span>Expiration Date</span> <input id="expirationDate" type="text" name="name" min="1" max="999" class="form-control" required="required"></div>
+                      <div class="inputbox ml-5"> <span>CVV</span> <input id="cvv" type="text" name="name" min="1" max="999" class="form-control" required="required"></div>
+                    </div>
+                    <div class="px-5 pay"> <button id="cardPayment" class="btn btn-success btn-block">Payment</button> </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="paypal" role="tabpanel" aria-labelledby="paypal-tab">
+                <div class="px-5 mt-5">
+                  <div class="inputbox"> <span>Paypal Email Address</span> <input id="paypalEmail" type="text" name="name" class="form-control" required="required"></div>
+                  <div class="inputbox"> <span>Paypal Password</span> <input id="paypalPassword" type="password" name="name" class="form-control" required="required"></div>
+                  <div class="pay px-5"> <button id="paypalPayment" class="btn btn-primary btn-block">Pay</button> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

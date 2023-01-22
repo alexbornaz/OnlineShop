@@ -1,5 +1,4 @@
 import {builder} from "./builder.js";
-import {calculateTotalPrice,engageEditCart} from "./controller.js"
 
 export let display = {
     showContent: function (selector, content){

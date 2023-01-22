@@ -9,10 +9,10 @@ export let builder = {
                     </div>
                     <div class="card-body">
                         <div class="card-text">
-                            <p class="lead">${product.defaultPrice} ${product.defaultCurrency}</p>
+                            <p class="lead">${product.price}</p>
                         </div>
                         <div class="card-text">
-                        <button data-btn-id="${product.id}" class="btn btn-success cart-btn">Add to cart</button>
+                        <button data-product-id="${product.id}" class="btn btn-success cart-btn">Add to cart</button>
                         </div>
                     </div>
                 </div>
