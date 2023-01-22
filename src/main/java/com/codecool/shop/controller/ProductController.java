@@ -23,19 +23,19 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(urlPatterns = {"/"})
 public class ProductController extends HttpServlet {
+    private final ProductDao productDataStore;
+    private final ProductCategoryDao productCategoryDataStore;
+    private final SupplierDao supplierDataStore;
+    public ProductController(ProductDao productDataStore, ProductCategoryDao productCategoryDataStore, SupplierDao supplierDao) {
+        this.productDataStore = productDataStore;
+        this.productCategoryDataStore = productCategoryDataStore;
+        this.supplierDataStore = supplierDao;
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ProductDao productDataStore = ProductDaoMem.getInstance();
-        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
-        CartDao cartDataStore =CartDaoMem.getInstance();
-        ProductService productService = ProductService.createInstance(productDataStore,productCategoryDataStore,supplierDataStore);
-        CartService cartService = CartService.createInstance(cartDataStore);
-
-
+        ProductService productService =new ProductService(productDataStore,productCategoryDataStore,supplierDataStore);
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());

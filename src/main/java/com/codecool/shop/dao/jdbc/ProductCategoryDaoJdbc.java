@@ -48,11 +48,11 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
     @Override
     public List<ProductCategory> getAll() {
         try (Connection conn = dataSource.getConnection()) {
-            String sql = "SELECT id, name, department FROM categories";
+            String sql = "SELECT id, name, department,description FROM categories";
             ResultSet resultSet = conn.createStatement().executeQuery(sql);
             List<ProductCategory> categoryList = new ArrayList<>();
             while(resultSet.next()) {
-                ProductCategory category = new ProductCategory(resultSet.getString(2), resultSet.getString(3));
+                ProductCategory category = new ProductCategory(resultSet.getString(2), resultSet.getString(3),resultSet.getString(4));
                 category.setId(resultSet.getInt(1));
                 categoryList.add(category);
             }

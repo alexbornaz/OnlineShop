@@ -47,11 +47,11 @@ public class SupplierDaoJdbc implements SupplierDao {
     @Override
     public List<Supplier> getAll() {
         try (Connection conn = dataSource.getConnection()) {
-            String sql = "SELECT id, name FROM suppliers";
+            String sql = "SELECT id, name,description FROM suppliers";
             ResultSet resultSet = conn.createStatement().executeQuery(sql);
             List<Supplier> supplierList = new ArrayList<>();
             while(resultSet.next()) {
-                Supplier supplier = new Supplier(resultSet.getString(2));
+                Supplier supplier = new Supplier(resultSet.getString(2),resultSet.getString(3));
                 supplier.setId(resultSet.getInt(1));
                 supplierList.add(supplier);
             }

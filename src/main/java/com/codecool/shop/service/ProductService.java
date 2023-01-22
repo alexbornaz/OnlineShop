@@ -15,27 +15,13 @@ public class ProductService {
     private ProductCategoryDao productCategoryDao;
     private SupplierDao supplierDao;
 
-    private static ProductService instance = null;
 
 
-    private ProductService(ProductDao productDao, ProductCategoryDao productCategoryDao, SupplierDao supplierDao) {
+    public ProductService(ProductDao productDao, ProductCategoryDao productCategoryDao, SupplierDao supplierDao) {
         this.productDao = productDao;
         this.productCategoryDao = productCategoryDao;
         this.supplierDao = supplierDao;
     }
-
-    public static ProductService createInstance(ProductDao productDao, ProductCategoryDao productCategoryDao, SupplierDao supplierDao){
-        instance = new ProductService(productDao,productCategoryDao,supplierDao);
-        return instance;
-    }
-    public static ProductService getInstance() {
-        if (instance == null){
-            throw new Error("ProductService Object not created yet!");
-        }
-        return instance;
-    }
-
-
 
 
     public ProductCategory getProductCategory(int categoryId) {
