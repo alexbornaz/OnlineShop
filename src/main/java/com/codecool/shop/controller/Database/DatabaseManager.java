@@ -40,7 +40,7 @@ public class DatabaseManager {
         productDao = new ProductDaoJdbc(dataSource, categoryDao, supplierDao);
     }
     private Properties initProperties() throws IOException {
-        String rootPath = Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource("")).getPath();
+        String rootPath = "src/main/resources/";
         String appConfigPath = rootPath + "connection.properties";
 
         Properties properties = new Properties();
