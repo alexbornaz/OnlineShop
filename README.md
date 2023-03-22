@@ -22,3 +22,4 @@
 <p>Once you have installed and run Codecool Shop, you can access the application by navigating to <code>http://localhost:8080</code> in your web browser. You can register as a new user or log in with your existing credentials. After logging in, you can browse the available products, add them to the shopping cart, and place an order. As an admin, you can also manage the products, categories, and orders through the admin dashboard.</p>
 <h2>Credits</h2>
 <p>Codecool Shop is developed by Bornaz Alex </p>
+![image1.png](samples%2Fimage1.png)
