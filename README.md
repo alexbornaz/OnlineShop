@@ -11,6 +11,9 @@
 </ul>
 <h2>Samples</h2>
 <img src="samples/image1.png" style="display: inline-block; margin: 0 auto; max-width: 300px" alt="image">
+<img src="samples/image2.png" style="display: inline-block; margin: 0 auto; max-width: 300px" alt="image">
+<img src="samples/image3.png" style="display: inline-block; margin: 0 auto; max-width: 300px" alt="image">
+<img src="samples/image4.png" style="display: inline-block; margin: 0 auto; max-width: 300px" alt="image">
 <h2>Installation</h2>
 <p>To install and run Codecool Shop on your local machine, follow these steps:</p>
 <ol>
